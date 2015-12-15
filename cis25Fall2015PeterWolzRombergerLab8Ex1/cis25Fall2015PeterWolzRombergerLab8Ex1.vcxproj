@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BOX.cpp" />
     <ClCompile Include="CIRCLE.cpp" />
     <ClCompile Include="cis25Fall2015PeterWolzRombergerLab8Ex1.cpp" />
     <ClCompile Include="CYLINDER.cpp" />
@@ -85,6 +86,7 @@
     <ClCompile Include="UTILITIES.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BOX.h" />
     <ClInclude Include="CIRCLE.h" />
     <ClInclude Include="CYLINDER.h" />
     <ClInclude Include="FRACTION.h" />

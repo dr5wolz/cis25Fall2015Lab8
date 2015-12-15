@@ -33,6 +33,7 @@ public:
 
 	// Print Options
 	friend ostream& operator<<(ostream&, const CirclePeterW&);
+	void print() override;
 
 	// checking values
 	void check(CirclePeterW&);

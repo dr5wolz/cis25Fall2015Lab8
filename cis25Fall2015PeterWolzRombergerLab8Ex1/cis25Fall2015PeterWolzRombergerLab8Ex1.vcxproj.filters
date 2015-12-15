@@ -36,6 +36,9 @@
     <ClCompile Include="CYLINDER.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BOX.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FRACTION.h">
@@ -57,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CYLINDER.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BOX.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

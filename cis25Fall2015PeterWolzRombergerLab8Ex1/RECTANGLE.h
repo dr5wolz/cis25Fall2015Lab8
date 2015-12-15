@@ -25,15 +25,23 @@ public:
 
 	// Data From Rectangle
 	FractionPeterW getArea() override;
+	FractionPeterW getXDif() const;
+	FractionPeterW getYDif() const;
+	FractionPeterW getLLX() const;
+	FractionPeterW getLLY() const;
+	FractionPeterW getURX() const;
+	FractionPeterW getURY() const;
 
 	// Print Options
 	friend ostream& operator<<(ostream&, const RectanglePeterW&);
+	void print() override;
 
 	// checking values
 	void check(RectanglePeterW&);
 
 	// overloading Operators
 	RectanglePeterW& operator=(const RectanglePeterW&);
+	RectanglePeterW operator+(const RectanglePeterW&);
 
 private:
 	PointPeterW ur;

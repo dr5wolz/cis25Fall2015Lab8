@@ -50,9 +50,10 @@ CirclePeterW& CirclePeterW::operator=(const CirclePeterW& in) {
 }
 
 ostream& operator<<(ostream& out, const CirclePeterW& in) {
-	out << "Circle has a center of " << in.center<< " and a radius of " << in.r
-		<< " and a area of:" 
-		<< FractionPeterW(in.r.getNum() * in.r.getNum() * 157, in.r.getDenom() * in.r.getDenom() * 50);
+	out << "\n        Circle has a center of " << in.center<< " and a radius of " << in.r
+		<< "\n        and a area of:" 
+		<< FractionPeterW(in.r.getNum() * in.r.getNum() * 157,
+		in.r.getDenom() * in.r.getDenom() * 50);
 	return out;
 }
 
@@ -61,8 +62,8 @@ FractionPeterW CirclePeterW::getArea() {
 }
 
 CirclePeterW& CirclePeterW::operator+(const CirclePeterW& in) {
-	return CirclePeterW(PointPeterW(FractionPeterW(((center.getX() + in.center.getX())/2)),
-		FractionPeterW(((center.getY()) + (in.center.getY())/2))), FractionPeterW(r + in.r));
+	return CirclePeterW(PointPeterW(FractionPeterW(((center.getX() + in.center.getX()) / FractionPeterW(2, 1))),
+		FractionPeterW(((center.getY()) + (in.center.getY()) / FractionPeterW(2, 1)))), FractionPeterW(r + in.r));
 }
 
 FractionPeterW CirclePeterW::getR() const {
@@ -72,9 +73,18 @@ FractionPeterW CirclePeterW::getR() const {
 PointPeterW CirclePeterW::getCenter() const {
 	return PointPeterW(center.getX(), center.getY());
 }
+
 FractionPeterW CirclePeterW::getCenterX() const {
 	return FractionPeterW(center.getX());
 }
+
 FractionPeterW CirclePeterW::getCenterY() const {
 	return FractionPeterW(center.getY());
+}
+
+void CirclePeterW::print() {
+	cout << "\n        Circle has a center of " << center << " and a radius of " << r
+		<< "\n        and a area of:"
+		<< FractionPeterW(r.getNum() * r.getNum() * 157,
+		r.getDenom() * r.getDenom() * 50);
 }

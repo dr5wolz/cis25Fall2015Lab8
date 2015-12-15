@@ -76,7 +76,6 @@ void initialize(RectanglePeterW** in) {
 }
 
 void initialize(CirclePeterW** in) {
-	int menuChoice;
 	FractionPeterW xValue;
 	FractionPeterW yValue;
 	int value;
@@ -112,6 +111,54 @@ void initialize(CirclePeterW** in) {
 
 
 	*in = new CirclePeterW(ur, r);
+}
+
+void initialize(CylinderPeterW** in) {
+	FractionPeterW xValue;
+	FractionPeterW yValue;
+	int value;
+	PointPeterW ur;
+	FractionPeterW r;
+	CirclePeterW base;
+	FractionPeterW height;
+
+	if (*in == nullptr)
+		delete *in;
+
+	cout << "    Please enter the fraction values for Center Point\n"
+		<< "      X Value, Numerator   : ";
+	cin >> value;
+	xValue.setNum(value);
+	cout << "      X Value, Denominator : ";
+	cin >> value;
+	xValue.setDenom(value);
+	cout << "      Y Value, Numerator   : ";
+	cin >> value;
+	yValue.setNum(value);
+	cout << "      Y Value, Denominator : ";
+	cin >> value;
+	yValue.setDenom(value);
+	cout << endl;
+	ur = PointPeterW(xValue, yValue);
+
+	cout << "    Please enter the fraction values for the Radius\n"
+		<< "      Radius, Numerator   : ";
+	cin >> value;
+	r.setNum(value);
+	cout << "      Radius, Denominator : ";
+	cin >> value;
+	r.setDenom(value);
+
+	base = CirclePeterW(ur, r);
+
+	cout << "    Please enter the Height Numerator : ";
+	cin >> value;
+	height.setNum(value);
+	cout << "    Please enter the Height Denominator : ";
+	cin >> value;
+	height.setDenom(value);
+
+	*in = new CylinderPeterW(base, height);
 }
 
 int rectangleMenu(RectanglePeterW** rec1, RectanglePeterW** rec2) {

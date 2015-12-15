@@ -103,3 +103,39 @@ ostream& operator<<(ostream& out, const RectanglePeterW& in) {
 FractionPeterW RectanglePeterW::getArea() {
 	return FractionPeterW(FractionPeterW(ur.getX() - ll.getX()) * FractionPeterW(ur.getY() - ll.getY()));
 }
+
+FractionPeterW RectanglePeterW::getXDif() const {
+	return FractionPeterW(ur.getX() - ll.getX());
+}
+
+FractionPeterW RectanglePeterW::getYDif() const {
+	return FractionPeterW(ur.getY() - ll.getY());
+}
+
+RectanglePeterW RectanglePeterW::operator+(const RectanglePeterW& in) {
+	return RectanglePeterW(PointPeterW((ll.getX() + in.ll.getX()) / FractionPeterW(2, 1),
+		(ll.getY() + ((in.ll).getY())) / FractionPeterW(2, 1)),
+		PointPeterW(
+		((ll.getX() + in.ll.getX()) / (FractionPeterW(2, 1)) + (getXDif() + (in.getXDif())) / FractionPeterW(2, 1)),
+		((ll.getY() + in.ll.getY()) / (FractionPeterW(2, 1)) + (getYDif() + (in.getYDif())) / FractionPeterW(2, 1))));
+}
+
+FractionPeterW RectanglePeterW::getLLY() const {
+	return FractionPeterW(ll.getY());
+}
+
+FractionPeterW RectanglePeterW::getLLX() const {
+	return FractionPeterW(ll.getX());
+}
+
+FractionPeterW RectanglePeterW::getURY() const {
+	return FractionPeterW(ur.getY());
+}
+
+FractionPeterW RectanglePeterW::getURX() const {
+	return FractionPeterW(ur.getX());
+}
+
+void RectanglePeterW::print() {
+	cout << "Rectangle bounded by " << ll << " and " << ur;
+}

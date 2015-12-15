@@ -12,6 +12,8 @@ using namespace std;
 #include "SHAPE.h"
 #include "RECTANGLE.h"
 #include "CIRCLE.h"
+#include "BOX.h"
+#include "CYLINDER.h"
 
 #ifndef UTILITIES_H
 #define UTILITIES_H
@@ -22,5 +24,7 @@ int circleMenu(CirclePeterW**, CirclePeterW**);
 void mixedMenu(RectanglePeterW*, RectanglePeterW*, CirclePeterW*, CirclePeterW*);
 void initialize(RectanglePeterW**);
 void initialize(CirclePeterW**);
+void initialize(BoxPeterW**);
+void initialize(CylinderPeterW**);
 
 #endif

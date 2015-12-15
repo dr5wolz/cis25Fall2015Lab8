@@ -27,10 +27,11 @@ public:
 
 	// Data From Rectangle
 	FractionPeterW getArea() override;
-	//FractionPeterW getVolume() override;
+	FractionPeterW getVolume() override;
 
 	// Print Options
 	friend ostream& operator<<(ostream&, const CylinderPeterW&);
+	void print() override;
 
 	// checking values
 	void check(CylinderPeterW&);

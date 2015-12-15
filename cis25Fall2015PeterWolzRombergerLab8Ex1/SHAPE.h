@@ -19,6 +19,7 @@ public:
 		return FractionPeterW(0, 1);
 	}
 
+	virtual void print();
 	virtual FractionPeterW getArea() = 0;
 };
 
