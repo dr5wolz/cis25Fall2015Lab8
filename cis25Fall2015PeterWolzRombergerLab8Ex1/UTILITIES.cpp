@@ -161,6 +161,69 @@ void initialize(CylinderPeterW** in) {
 	*in = new CylinderPeterW(base, height);
 }
 
+
+void initialize(BoxPeterW** in) {
+	FractionPeterW xValue;
+	FractionPeterW yValue;
+	int value;
+	PointPeterW ur;
+	PointPeterW ll;
+	FractionPeterW r;
+	RectanglePeterW base;
+	FractionPeterW height;
+
+	if (*in == nullptr)
+		delete *in;
+
+	if (*in == nullptr)
+		delete *in;
+
+	cout << "    Please enter the fraction values for Point #1\n"
+		<< "      X Value, Numerator   : ";
+	cin >> value;
+	xValue.setNum(value);
+	cout << "      X Value, Denominator : ";
+	cin >> value;
+	xValue.setDenom(value);
+	cout << "      Y Value, Numerator   : ";
+	cin >> value;
+	yValue.setNum(value);
+	cout << "      Y Value, Denominator : ";
+	cin >> value;
+	yValue.setDenom(value);
+	cout << endl;
+	ur = PointPeterW(xValue, yValue);
+	xValue.setDenom(1);
+	yValue.setDenom(1);
+
+	cout << "    Please enter the fraction values for Point #2\n"
+		<< "      X Value, Numerator   : ";
+	cin >> value;
+	xValue.setNum(value);
+	cout << "      X Value, Denominator : ";
+	cin >> value;
+	xValue.setDenom(value);
+	cout << "      Y Value, Numerator   : ";
+	cin >> value;
+	yValue.setNum(value);
+	cout << "      Y Value, Denominator : ";
+	cin >> value;
+	yValue.setDenom(value);
+	cout << endl;
+	ll = PointPeterW(xValue, yValue);
+
+	base = RectanglePeterW(ll, ur);
+
+	cout << "    Please enter the Height Numerator : ";
+	cin >> value;
+	height.setNum(value);
+	cout << "    Please enter the Height Denominator : ";
+	cin >> value;
+	height.setDenom(value);
+
+	*in = new BoxPeterW(base, height);
+}
+
 int rectangleMenu(RectanglePeterW** rec1, RectanglePeterW** rec2) {
 	int menuChoice;
 	int initializeCheck = 0;

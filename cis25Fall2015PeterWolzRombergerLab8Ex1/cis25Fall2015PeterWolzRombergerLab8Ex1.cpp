@@ -112,6 +112,10 @@ void shapeMenu() {
 	BoxPeterW *tempBox;
 	sizeOfArray = 8;
 	listOfShapes = new Shape*[sizeOfArray];
+	FractionPeterW data1;
+	FractionPeterW data2;
+	int subMenuChoice1;
+	int subMenuChoice2;
 	
 	do {
 		cout << "\n*******************************************\n"
@@ -120,10 +124,10 @@ void shapeMenu() {
 			<< "*(2) Create 2 CirclePeterW objects        *\n"
 			<< "*(3) Create 2 BoxPeterW objects           *\n"
 			<< "*(4) Create 2 CylinderPeterW objects      *\n"
-			<< "*(4) Compare 2 selected objects by area   *\n"
-			<< "*(4) Compare 2 selected objects by volume *\n"
-			<< "*(4) Print selected objects               *\n"
-			<< "*(4) Quit                                 *\n"
+			<< "*(5) Compare 2 selected objects by area   *\n"
+			<< "*(6) Compare 2 selected objects by volume *\n"
+			<< "*(7) Print selected objects               *\n"
+			<< "*(8) Quit                                 *\n"
 			<< "*******************************************\n";
 
 		cout << "Enter your option (1, 2, 3, 4, 5, 6, 7, or 8): ";
@@ -142,6 +146,9 @@ void shapeMenu() {
 			}
 			initialize(&tempRec);
 			*(listOfShapes + 1) = new RectanglePeterW(*tempRec);
+			if (initalizeCheck % 10 != 1) {
+				initalizeCheck += 1;
+			}
 			break;
 		case 2: cout << "  Create 2 Circle objects --\n";
 			if (*(listOfShapes + 2) == nullptr) {
@@ -152,27 +159,119 @@ void shapeMenu() {
 			if (*(listOfShapes + 3) == nullptr) {
 				delete *(listOfShapes + 3);
 			}
-			initialize(&tempRec);
-			*(listOfShapes + 3) = new RectanglePeterW(*tempRec);
+			initialize(&tempCir);
+			*(listOfShapes + 3) = new CirclePeterW(*tempCir);
+			if ((initalizeCheck / 10) % 10 != 1){
+				initalizeCheck += 10;
+			}
 			break;
-		case 3:
-		case 4:
+		case 3: cout << "  Create 2 Box objects --\n";
+			if (*(listOfShapes + 4) == nullptr) {
+				delete *(listOfShapes + 4);
+			}
+			initialize(&tempBox);
+			*(listOfShapes + 4) = new BoxPeterW(*tempBox);
+			if (*(listOfShapes + 5) == nullptr) {
+				delete *(listOfShapes + 5);
+			}
+			initialize(&tempBox);
+			*(listOfShapes + 5) = new BoxPeterW(*tempBox);
+			if ((initalizeCheck / 100) % 10 != 1){
+				initalizeCheck += 100;
+			}
+			break;
+		case 4:cout << "  Create 2 Cylinder objects --\n";
+			if (*(listOfShapes + 6) == nullptr) {
+				delete *(listOfShapes + 6);
+			}
+			initialize(&tempCyl);
+			*(listOfShapes + 6) = new CylinderPeterW(*tempCyl);
+			if (*(listOfShapes + 7) == nullptr) {
+				delete *(listOfShapes + 7);
+			}
+			initialize(&tempCyl);
+			*(listOfShapes + 7) = new CylinderPeterW(*tempCyl);
+			if ((initalizeCheck / 1000) % 10 != 1){
+				initalizeCheck += 1000;
+			}
+			break;
 		case 5:
+			if (initalizeCheck == 1111) {
+				cout << "  Please enter Object #1 : ";
+				cin >> subMenuChoice1;
+				subMenuChoice2 = 0;
+				do {
+					if (subMenuChoice1 == subMenuChoice2) {
+						cout << "\n Please enter a unique second choice!\n";
+					}
+					cout << "  Please enter Object #2 : ";
+					cin >> subMenuChoice2;
+				} while (subMenuChoice1 == subMenuChoice2);
+				data1 = ((*(*listOfShapes - 1 + subMenuChoice1)).getArea());
+				data2 = ((*(*listOfShapes - 1 + subMenuChoice2)).getArea());
+				if (data1 > data2) {
+					cout << "\n      The first Shape has a greater area of " << data1
+						<< "\n      than The seconds Shape's area of " << data2 << endl;
+				} else if (data1 == data2) {
+					cout << "\n      Both Rectangles have an area of " << data1;
+				} else {
+					cout << "\n      The seconds Shape has a greater area of " << data2
+						<< "\n      than The first Shape's area of " << data1 << endl;
+				}
+			} else {
+				cout << "\n  Please make sure all shapes are set before comparing\n";
+			}
+			break;
 		case 6:
+			if (initalizeCheck == 1111) {
+				cout << "  Please enter Object #1 : ";
+				cin >> subMenuChoice1;
+				subMenuChoice2 = 0;
+				do {
+					if (subMenuChoice1 == subMenuChoice2) {
+						cout << "\n Please enter a unique second choice!\n";
+					}
+					cout << "  Please enter Object #2 : ";
+					cin >> subMenuChoice2;
+				} while (subMenuChoice1 == subMenuChoice2);
+				data1 = (*(*listOfShapes - 1 + subMenuChoice1)).getVolume();
+				data2 = (*(*listOfShapes - 1 + subMenuChoice2)).getVolume();
+				if (data1 > data2) {
+					cout << "\n      The first Shape has a greater area of " << data1
+						<< "\n      than The seconds Shape's area of " << data2 << endl;
+				} else if (data1 == data2) {
+					cout << "\n      Both Rectangles have an area of " << data1;
+				} else {
+					cout << "\n      The seconds Shape has a greater area of " << data2
+						<< "\n      than The first Shape's area of " << data1 << endl;
+				}
+			} else {
+				cout << "\n  Please make sure all shapes are set before comparing\n";
+			}
+			break;
 		case 7:  
-			(*(*listOfShapes)).print();
-			(*(*listOfShapes + 1)).print();
-			(*(*listOfShapes + 2)).print();
-			(*(*listOfShapes + 3)).print();
+			if (initalizeCheck == 1111) {
+				(*(*listOfShapes)).print();
+				(*(*listOfShapes + 1)).print();
+				(*(*listOfShapes + 2)).print();
+				(*(*listOfShapes + 3)).print();
+				(*(*listOfShapes + 4)).print();
+				(*(*listOfShapes + 5)).print();
+				(*(*listOfShapes + 6)).print();
+				(*(*listOfShapes + 7)).print();
+			} else {
+				cout << "\n  Please make sure all shapes are set before printing\n";
+			}
+			break;
 		case 8:  cout << "  Having Fun ...\n";
 			break;
 		default:
 			cout << "WRONG OPTION!\n";
 			break;
 		}
-
 	} while (menuChoice != 8);
-
+	delete[] listOfShapes;
+	delete listOfShapes;
 }
 
 /* PROGRAM OUTPUT
